@@ -1,14 +1,29 @@
 package entity;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "students")
 public class Student {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "first_name", nullable = false)
     private String fname;
+
+    @Column(name = "last_name")
     private String lname;
+
+    @Column(name = "email")
     private String email;
 
-    public Student(long id, String fname, String lname, String email) {
-        this.id = id;
+    public Student() {
+
+    }
+
+    public Student(String fname, String lname, String email) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
